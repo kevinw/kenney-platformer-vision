@@ -16,13 +16,24 @@ let multiplayerExternalEvents: Set<String> = []
 
 @main
 struct GodotVisionExample: App {
+    
+    @State private var style: ImmersionStyle = .mixed
+    
+    @ViewBuilder
+    func content(scale: Float = 1.0) -> some View {
+    }
+
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        ImmersiveSpace {
+            ContentView(scale: 0.1, offset: .init(0, 0.5, 0))
                 .handlesExternalEvents(preferring: multiplayerExternalEvents, // for invites to SharePlay sessions
                                        allowing: multiplayerExternalEvents)
+        }.immersionStyle(selection: $style, in: .mixed)
+        /*
+        WindowGroup {
         }
         .windowStyle(.volumetric)
         .defaultSize(width: VOLUME_SIZE.x, height: VOLUME_SIZE.y, depth: VOLUME_SIZE.z, in: .meters)
+         */
     }
 }

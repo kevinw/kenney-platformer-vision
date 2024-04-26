@@ -13,6 +13,7 @@
 		DE54EAB62B3C75D500594A05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE54EAB52B3C75D500594A05 /* ContentView.swift */; };
 		DE54EABA2B3C75D600594A05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE54EAB92B3C75D600594A05 /* Assets.xcassets */; };
 		DE54EABD2B3C75D600594A05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE54EABC2B3C75D600594A05 /* Preview Assets.xcassets */; };
+		DED023EB2BDBB79B000AB7CD /* Starter-Kit-3D-Platformer in Resources */ = {isa = PBXBuildFile; fileRef = DED023EA2BDBB79B000AB7CD /* Starter-Kit-3D-Platformer */; };
 		DEF363ED2B57F443005E175D /* Godot_Project in Resources */ = {isa = PBXBuildFile; fileRef = DEF363EC2B57F443005E175D /* Godot_Project */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,8 @@
 		DE54EAB92B3C75D600594A05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE54EABC2B3C75D600594A05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DE54EABE2B3C75D600594A05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DED023EA2BDBB79B000AB7CD /* Starter-Kit-3D-Platformer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Starter-Kit-3D-Platformer"; sourceTree = "<group>"; };
+		DED023EC2BDBB8D1000AB7CD /* GodotVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GodotVision; path = ../GodotVision; sourceTree = "<group>"; };
 		DEF363EC2B57F443005E175D /* Godot_Project */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Godot_Project; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,6 +55,8 @@
 		DE54EAA32B3C75D500594A05 = {
 			isa = PBXGroup;
 			children = (
+				DED023EC2BDBB8D1000AB7CD /* GodotVision */,
+				DED023EA2BDBB79B000AB7CD /* Starter-Kit-3D-Platformer */,
 				DE2B5D932BDAEC90008C82C6 /* Configuration */,
 				DEF363EC2B57F443005E175D /* Godot_Project */,
 				DE54EAAE2B3C75D500594A05 /* GodotVisionExample */,
@@ -155,6 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DED023EB2BDBB79B000AB7CD /* Starter-Kit-3D-Platformer in Resources */,
 				DEF363ED2B57F443005E175D /* Godot_Project in Resources */,
 				DE54EABD2B3C75D600594A05 /* Preview Assets.xcassets in Resources */,
 				DE54EABA2B3C75D600594A05 /* Assets.xcassets in Resources */,

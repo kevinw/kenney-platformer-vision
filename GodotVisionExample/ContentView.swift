@@ -5,13 +5,18 @@ import RealityKit
 import GodotVision
 
 struct ContentView: View {
+    
     @StateObject private var godotVision = GodotVisionCoordinator()
+    @State private var extraScale: Float = 1
+    
+    var scale: Float = 1
+    var offset: simd_float3 = .zero
 
     var body: some View {
         GeometryReader3D { (geometry: GeometryProxy3D) in
             RealityView { content, attachments in
                 
-                let pathToGodotProject = "Godot_Project" // The path to the folder containing the "project.godot" you wish Godot to load.
+                let pathToGodotProject = "Starter-Kit-3D-Platformer" // The path to the folder containing the "project.godot" you wish Godot to load.
                 
                 // Initialize Godot
                 let rkEntityGodotRoot = godotVision.setupRealityKitScene(content,
@@ -38,19 +43,33 @@ struct ContentView: View {
                 }
             } attachments: {
                 Attachment(id: "ui_panel") {
-                    HStack {
-                        // A button to reload the current scene.
-                        Button { godotVision.reloadScene() } label: {
-                            Text("Reload")
+                    VStack {
+                        HStack {
+                            Slider(value: $extraScale, in: 0.01...1.2) { value in
+                                print(value)
+                            }.onChange(of: extraScale) {
+                                godotVision.extraScale = extraScale * scale
+                            }.onChange(of: offset) {
+                                godotVision.extraOffset = offset
+                            }.onAppear {
+                                godotVision.extraScale = extraScale * scale
+                                godotVision.extraOffset = offset
+                            }
                         }
-                        
-                        // Buttons for loading example scenes.
-                        sceneButton(label: "Hello", resourcePath: "res://examples/hello/example_godot_vision_scene.tscn")
-                        sceneButton(label: "Physics", resourcePath: "res://examples/physics_toy/physics_toy.tscn")
-                        //sceneButton(label: "Materials", resourcePath: "res://tests/materials/materials.tscn")
-                        sceneButton(label: "Skeletons", resourcePath: "res://examples/rigged_models/example_rigged_models.tscn")
-                        sceneButton(label: "CSG", resourcePath: "res://examples/csg/csg.tscn")
-                        sceneButton(label: "Multiplayer", resourcePath: "res://examples/multiplayer_example/multiplayer_example.tscn")
+                        HStack {
+                            // A button to reload the current scene.
+                            Button { godotVision.reloadScene() } label: {
+                                Text("Reload")
+                            }
+                            
+                            // Buttons for loading example scenes.
+                            sceneButton(label: "Hello", resourcePath: "res://examples/hello/example_godot_vision_scene.tscn")
+                            sceneButton(label: "Physics", resourcePath: "res://examples/physics_toy/physics_toy.tscn")
+                            //sceneButton(label: "Materials", resourcePath: "res://tests/materials/materials.tscn")
+                            sceneButton(label: "Skeletons", resourcePath: "res://examples/rigged_models/example_rigged_models.tscn")
+                            sceneButton(label: "CSG", resourcePath: "res://examples/csg/csg.tscn")
+                            sceneButton(label: "Multiplayer", resourcePath: "res://examples/multiplayer_example/multiplayer_example.tscn")
+                        }
 
                     }.padding(36).frame(width: 700).glassBackgroundEffect()
                 }
