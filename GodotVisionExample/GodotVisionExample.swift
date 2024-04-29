@@ -19,13 +19,9 @@ struct GodotVisionExample: App {
     
     @State private var style: ImmersionStyle = .mixed
     
-    @ViewBuilder
-    func content(scale: Float = 1.0) -> some View {
-    }
-
     var body: some Scene {
         ImmersiveSpace {
-            ContentView(scale: 0.1, offset: .init(0, 0.5, 0))
+            ContentView(scale: 0.1, offset: .init(0, 0.85, -0.9))
                 .handlesExternalEvents(preferring: multiplayerExternalEvents, // for invites to SharePlay sessions
                                        allowing: multiplayerExternalEvents)
         }.immersionStyle(selection: $style, in: .mixed)
