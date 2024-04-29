@@ -1,6 +1,6 @@
 # passthrough platformer example for [godot.vision](https://godot.vision)
 
-![Screenshot showing Godot project running in the visionOS Simulator](docs/platfomer_ss.jpg)
+![Screenshot showing Godot project running in the visionOS Simulator](docs/platformer_ss.jpg)
 
 ## To Run
 
